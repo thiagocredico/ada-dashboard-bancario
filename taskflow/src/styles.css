@@ -265,3 +265,103 @@ table tbody td {
     background: var(--badge-bg);
     color: var(--badge-text);
 }
+
+:root.light {
+    --bg: #f7f8fc;
+    --sidebar: #ffffffb0;
+    --surface: #6361e736;
+    --surface-2: hsla(225, 50%, 97%, 0.226);
+    --border: #e6e9fb;
+
+    --text: #040a2a;
+    --white-soft: #0f3b57;
+    --text-muted: #375d78;
+    --text-soft: #4b748e;
+
+    --primary: #5b74ff;
+    --success: #12d99b;
+    --danger: #ff4d6d;
+    --warning: #ffcc66;
+
+    --white: #ffffff;
+    --white-soft: #0f3b57;
+    --input-bg: #ffffff;
+    --input-border: #e6e9fb;
+    --divider: rgba(15, 23, 36, 0.06);
+    --divider-05: rgba(15, 23, 36, 0.05);
+    --divider-03: rgba(15, 23, 36, 0.03);
+    --badge-bg: rgba(91, 116, 255, 0.08);
+    --badge-text: #4961ff;
+    --muted-border-08: rgba(15, 23, 36, 0.08);
+    --hover-bg-05: rgba(15, 23, 36, 0.04);
+    --primary-22: rgba(91, 116, 255, 0.12);
+    --primary-18: rgba(91, 116, 255, 0.12);
+    --primary-45: rgba(91, 116, 255, 0.25);
+    --field-outline-20: rgba(15, 23, 36, 0.08);
+    --field-outline-30: rgba(15, 23, 36, 0.12);
+    --text-85: rgba(11, 17, 36, 0.85);
+    --surface-75: rgba(243, 245, 251, 0.75);
+    --danger-20: rgba(255, 77, 109, 0.12);
+    --danger-16: rgba(255, 77, 109, 0.08);
+    --success-16: rgba(18, 217, 155, 0.08);
+    --secondary-border-24: rgba(113, 138, 219, 0.12);
+    --field-border-03: rgba(15, 23, 36, 0.03);
+    --sidebar-bg-alpha: rgba(255,255,255,0.95);
+    --muted-accent-1: #6d7aff;
+    --muted-accent-2: #7f8fff;
+    --muted-accent-3: #9aaadf;
+    --muted-90: #557389;
+    --muted-7f: #4e6478;
+    --trend-up: #05986b;
+    --trend-down: #c82f46;
+    --loan-grad-start: #17b189;
+    --loan-grad-end: #1ca57d;
+    --btn-primary-bg: #0f8569;
+    --muted-97aadb: #6f87b5;
+    --transfer-grad-start: #5870ff;
+    --transfer-grad-end: #495fd7;
+    --content-muted: #345a78;
+    --header-bg-alpha: rgba(255,255,255,0.9);
+    --icon-hover-bg: rgba(15, 23, 36, 0.06);
+    --badge-text-alt: #6f80ff;
+    --success-text: #0ea26b;
+    --danger-text-16: #d66a88;
+}
+
+:root.light body,
+:root.light h1,
+:root.light h2,
+:root.light h3,
+:root.light h4,
+:root.light h5,
+:root.light h6,
+:root.light p,
+:root.light small,
+:root.light label,
+:root.light .hint,
+:root.light th,
+:root.light td,
+:root.light .big,
+:root.light .muted-card,
+:root.light .content,
+:root.light .dashboard-hero,
+:root.light .transactions-table,
+:root.light .summary-text,
+:root.light .menu-label {
+    color: var(--text) !important;
+}
+
+:root.light .muted,
+:root.light .soft {
+    color: var(--text-muted) !important;
+}
+
+:root.light .hero-card .big.text-success,
+:root.light .trend.up {
+    color: var(--trend-up) !important;
+}
+
+:root.light .hero-card .big.text-danger,
+:root.light .trend.down {
+    color: var(--trend-down) !important;
+}

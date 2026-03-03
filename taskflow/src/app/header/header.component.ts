@@ -15,6 +15,7 @@ export class HeaderComponent {
   private readonly accountState = inject(AccountStateService);
 
   accountName = 'Cliente';
+  isLight = false;
 
   constructor() {
     this.accountState.account$
@@ -22,5 +23,28 @@ export class HeaderComponent {
       .subscribe((account) => {
         this.accountName = account?.name || 'Cliente';
       });
+
+    // initialize theme from localStorage (default dark)
+    try {
+      const stored = localStorage.getItem('theme');
+      this.isLight = stored === 'light';
+    } catch (e) {
+      this.isLight = false;
+    }
+    this.applyTheme();
+  }
+
+  toggleTheme() {
+    this.isLight = !this.isLight;
+    try {
+      localStorage.setItem('theme', this.isLight ? 'light' : 'dark');
+    } catch (e) {}
+    this.applyTheme();
+  }
+
+  private applyTheme() {
+    const root = document.documentElement;
+    if (this.isLight) root.classList.add('light');
+    else root.classList.remove('light');
   }
 }

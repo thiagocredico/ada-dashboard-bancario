@@ -5,6 +5,9 @@
     <button mat-icon-button class="icon-btn" title="Notificações" aria-label="Notificações">
       <mat-icon fontIcon="notifications_none"></mat-icon>
     </button>
+    <button mat-icon-button class="icon-btn" title="Alternar tema" aria-label="Alternar tema" (click)="toggleTheme()">
+      <mat-icon>{{ isLight ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
     <button mat-icon-button class="icon-btn" title="Sair" aria-label="Sair">
       <mat-icon fontIcon="logout"></mat-icon>
     </button>
