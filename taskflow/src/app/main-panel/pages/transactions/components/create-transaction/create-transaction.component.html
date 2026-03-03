@@ -1,0 +1,85 @@
+<section class="create-transaction-root">
+  <header>
+    <h2>{{ id ? 'Editar Transação' : 'Nova Transação' }}</h2>
+    <p class="muted">Preencha os campos para salvar a movimentação</p>
+  </header>
+
+  <form class="card create-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Data</mat-label>
+      <input matInput formControlName="date" [matDatepicker]="picker" />
+      <mat-hint>A data deve ser entre 01/01/2026 e a data de hoje</mat-hint>
+      @if (this.form.get("date")?.errors?.["dateOutOfRange"]) {
+        <mat-error
+          >Data deve estar entre
+          {{
+            this.form.get("date")?.errors?.["dateOutOfRange"]?.min
+              | date: "dd/MM/yyyy"
+          }}
+          e
+          {{
+            this.form.get("date")?.errors?.["dateOutOfRange"]?.max
+              | date: "dd/MM/yyyy"
+          }}</mat-error
+        >
+      }
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Descrição</mat-label>
+      <input
+        matInput
+        placeholder="Descreva a transação"
+        formControlName="description"
+      />
+      @if (form.get("description")?.errors?.["required"]) {
+        <mat-error>A descrição precisa ser informada</mat-error>
+      }
+      @if (form.get("description")?.errors?.["minlength"]) {
+        <mat-error>A descrição precisa ter pelo menos 3 caracteres</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Valor</mat-label>
+      <input
+        matInput
+        placeholder="R$ 0,00"
+        formControlName="amount"
+        mask="separator.2"
+        thousandSeparator="."
+        decimalMarker=","
+        prefix="R$ "
+        [allowNegativeNumbers]="true"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="type">
+        <mat-option [value]="null" selected>- Selecione</mat-option>
+        <mat-option [value]="transactionTypesEnum.INCOME">Entrada</mat-option>
+        <mat-option [value]="transactionTypesEnum.EXPENSE">Saída</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="actions">
+      <button
+        type="submit"
+        class="action-btn primary"
+        [disabled]="form.invalid"
+      >
+        Salvar
+      </button>
+      <button
+        type="button"
+        class="action-btn secondary"
+        (click)="backToList()"
+      >
+        Voltar
+      </button>
+    </div>
+  </form>
+</section>

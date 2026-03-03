@@ -1,0 +1,15 @@
+<aside class="sidebar">
+  <div class="brand">
+    <div class="logo-badge">B</div>
+    <div class="logo-text">BankSPA</div>
+  </div>
+
+  <ul>
+    @for (item of menuItems; track $index) {
+      <li (click)="redirectToPage(item.page)" [class.active]="(page$ | async) === item.page">
+        <mat-icon aria-hidden="false">{{ item.icon }}</mat-icon>
+        <span class="menu-label">{{ item.label }}</span>
+      </li>
+    }
+  </ul>
+</aside>

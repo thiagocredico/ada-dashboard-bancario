@@ -1,0 +1,223 @@
+body,
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+    --sidebar-width: 160px;
+
+    --bg: #040a2a;
+    --sidebar: #0a1237;
+    --surface: #1a234d;
+    --surface-2: #222d5b;
+    --border: #2f3c72;
+
+    --text: #eef3ff;
+    --text-muted: #8ea1d1;
+    --text-soft: #a8b6df;
+
+    --primary: #5b74ff;
+    --success: #12d99b;
+    --danger: #ff4d6d;
+    --warning: #ffcc66;
+
+    --muted: var(--text-muted);
+    --space-1: 8px;
+    --space-2: 12px;
+    --space-3: 16px;
+    --space-4: 20px;
+    --space-5: 24px;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+.app-shell {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    flex: 0 0 var(--sidebar-width);
+}
+
+.main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    padding: 24px;
+    flex: 1;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: var(--space-4);
+}
+
+.muted {
+    color: var(--text-muted);
+}
+
+.soft {
+    color: var(--text-soft);
+}
+
+.big {
+    font-size: 1.4rem;
+    font-weight: 600
+}
+
+@media (max-width: 900px) {
+    :root {
+        --sidebar-width: 72px;
+    }
+
+    .sidebar {
+        padding: 16px 8px;
+    }
+}
+
+.text-success {
+    color: var(--success) !important;
+}
+
+.text-danger {
+    color: var(--danger) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th {
+    color: var(--text);
+}
+
+p,
+small,
+label,
+.hint {
+    color: var(--text-muted);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    color: var(--text);
+    background: #2a3364;
+    border: 1px solid #3a4882;
+    border-radius: 10px;
+    padding: 11px 12px;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+button.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+button.btn-primary:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead th {
+    color: var(--text-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    padding: 13px 16px;
+}
+
+table tbody td {
+    color: var(--text);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    padding: 13px 16px;
+}
+
+.mat-sort-header .mat-sort-header-arrow {
+    opacity: 0 !important;
+    color: inherit;
+}
+
+.mat-sort-header.mat-sort-header-sorted .mat-sort-header-arrow,
+.mat-sort-header .mat-sort-header-container.mat-sort-header-sorted .mat-sort-header-arrow,
+.mat-sort-header .mat-sort-header-sorted .mat-sort-header-arrow {
+    opacity: 1 !important;
+    color: #fff !important;
+}
+
+.mat-sort-header.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-stem,
+.mat-sort-header .mat-sort-header-container.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-stem,
+.mat-sort-header .mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-stem,
+.mat-sort-header.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-middle,
+.mat-sort-header .mat-sort-header-container.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-middle,
+.mat-sort-header .mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-middle {
+    display: none !important;
+}
+
+.mat-sort-header.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-left,
+.mat-sort-header .mat-sort-header-container.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-left,
+.mat-sort-header .mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-left,
+.mat-sort-header.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-right,
+.mat-sort-header .mat-sort-header-container.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-right,
+.mat-sort-header .mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-right {
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: #fff !important;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    font-size: 12px;
+    padding: 4px 10px;
+    background: rgba(88, 112, 255, .18);
+    color: #9fb0ff;
+}

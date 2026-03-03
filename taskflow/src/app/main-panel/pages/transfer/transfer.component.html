@@ -1,0 +1,46 @@
+<section class="transfer-root">
+  <header>
+    <h2>Transferência</h2>
+    <p class="muted">Realize transferências para outras contas</p>
+  </header>
+
+  <article class="balance-card">
+    <div>Saldo Disponível</div>
+    <div class="balance-value">
+      {{ (account$ | async)?.balance || 0 | currency: "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
+    </div>
+  </article>
+
+  <form class="card transfer-form" (ngSubmit)="submit()" [formGroup]="form">
+    <div>
+      <label class="form-label">Conta Destino</label>
+      <select formControlName="destinationAccount">
+        <option value="" disabled>Selecione uma conta</option>
+        @for (account of destinationAccounts; track account) {
+          <option [value]="account">{{ account }}</option>
+        }
+      </select>
+      <small class="form-help">Informe a conta destino.</small>
+    </div>
+
+    <div>
+      <label class="form-label">Valor</label>
+      <input type="number" formControlName="amount" placeholder="0,00" />
+      <small class="form-help">Informe um valor válido.</small>
+    </div>
+
+    <div>
+      <label class="form-label">Descrição</label>
+      <input formControlName="description" placeholder="Digite uma descrição (opcional)" />
+    </div>
+
+    <button class="submit-btn" type="submit" [disabled]="loading || form.invalid">
+      {{ loading ? "Transferindo..." : "Transferir" }}
+    </button>
+
+    <div class="status">
+      <div *ngIf="error" class="error">{{ error }}</div>
+      <div *ngIf="success" class="success">Transferência realizada</div>
+    </div>
+  </form>
+</section>

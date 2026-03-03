@@ -1,0 +1,76 @@
+<div class="dashboard-root">
+  <header class="dashboard-hero">
+    <h2>Bem-vindo, {{ account?.name || 'Cliente' }}!</h2>
+
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <div class="muted">Saldo em Conta</div>
+        </div>
+        <div class="big">R$ {{ account?.balance | number:'1.2-2' }}</div>
+      </div>
+
+      <div class="hero-card muted-card">
+        <div class="hero-card-top">
+          <div class="muted">Receitas</div>
+          <span class="hero-meta">(mês)</span>
+        </div>
+        <div class="big text-success">
+          R$ {{ totalIncome | number:'1.2-2' }}
+          <mat-icon class="trend up" aria-hidden="true">trending_up</mat-icon>
+        </div>
+      </div>
+
+      <div class="hero-card muted-card">
+        <div class="hero-card-top">
+          <div class="muted">Despesas</div>
+          <span class="hero-meta">(mês)</span>
+        </div>
+        <div class="big text-danger">
+          -R$ {{ totalExpense | number:'1.2-2' }}
+          <mat-icon class="trend down" aria-hidden="true">trending_down</mat-icon>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="content card">
+    <div class="content-header">
+      <h3>Últimas Transações</h3>
+      <div class="muted summary-text">Resumo das movimentações recentes</div>
+    </div>
+
+
+
+    <div class="transactions-table">
+      <table
+        matSort
+        [matSortActive]="sortState.active"
+        [matSortDirection]="sortState.direction"
+        matSortDisableClear
+        (matSortChange)="onSortChange($event)">
+        <thead>
+          <tr>
+            <th mat-sort-header="date" sortActionDescription="Ordenar por data">Data</th>
+            <th class="col-description" mat-sort-header="description" sortActionDescription="Ordenar por descrição">Descrição</th>
+            <th mat-sort-header="amount" sortActionDescription="Ordenar por valor" >Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of sortedFilteredTransactions; track $index) {
+            <tr>
+              <td>{{ item?.date | date: 'dd/MM/yyyy' }}</td>
+              <td class="col-description">{{ item.description }}</td>
+              <td
+                style="text-align:right"
+                [class.text-success]="item.amount > 0"
+                [class.text-danger]="item.amount < 0">
+                {{ item.amount | number:'1.2-2' }}
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

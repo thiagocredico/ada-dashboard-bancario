@@ -1,0 +1,9 @@
+.transactions-page {
+	padding: 20px 24px;
+}
+
+@media (max-width: 900px) {
+	.transactions-page {
+		padding: 16px;
+	}
+}

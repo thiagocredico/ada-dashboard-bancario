@@ -1,0 +1,84 @@
+<section class="transactions-root">
+  <header class="top-row">
+    <div>
+      <h2 class="dashboard-title"> Extrato</h2>
+      <p class="muted">Visualize todas as suas transações</p>
+    </div>
+    <button class="action-btn" (click)="redirectToCreate()">Nova transação</button>
+  </header>
+
+  <div class="summary-grid">
+    <article class="card summary-card">
+      <div class="muted">Saldo Disponível</div>
+      <div
+        class="summary-value"
+        [class.text-success]="totalIncome >= 0"
+        [class.text-danger]="totalIncome < 0">
+        {{ totalIncome | currency: "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
+      </div>
+    </article>
+
+    <article class="card summary-card">
+      <div class="muted">Total de Despesas</div>
+      <div class="summary-value text-danger">
+        -{{ totalExpense | currency: "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
+      </div>
+    </article>
+  </div>
+
+  <section class="card filter-card">
+    <input
+      type="text"
+      placeholder="Buscar transação..."
+      [(ngModel)]="searchTerm"
+    />
+    <button class="ghost-btn" type="button">Filtros</button>
+  </section>
+
+  <section class="card table-card">
+    <table
+      matSort
+      [matSortActive]="sortState.active"
+      [matSortDirection]="sortState.direction"
+      matSortDisableClear
+      (matSortChange)="onSortChange($event)">
+      <thead>
+        <tr>
+          <th mat-sort-header="date" sortActionDescription="Ordenar por data">Data</th>
+          <th class="col-description" mat-sort-header="description" sortActionDescription="Ordenar por descrição">Descrição</th>
+          <th mat-sort-header="type" sortActionDescription="Ordenar por categoria">Categoria</th>
+          <th mat-sort-header="amount" sortActionDescription="Ordenar por valor" style="text-align: right">Valor</th>
+          <th style="text-align: right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of sortedFilteredTransactions; track item.id) {
+          <tr>
+            <td>{{ item.date | date: "dd/MM/yyyy" }}</td>
+            <td class="col-description">{{ item.description }}</td>
+            <td>
+              <span class="badge" [class.income]="item.amount > 0" [class.expense]="item.amount < 0">
+                {{ item.amount > 0 ? "Receita" : "Despesa" }}
+              </span>
+            </td>
+            <td
+              style="text-align: right"
+              [class.text-success]="item.amount > 0"
+              [class.text-danger]="item.amount < 0"
+            >
+              {{ item.amount > 0 ? "+" : "-" }}{{ (item.amount > 0 ? item.amount : -item.amount) | currency: "BRL" : "symbol" : "1.2-2" : "pt-BR" }}
+            </td>
+            <td class="actions-col">
+              <button class="table-btn icon-btn edit" type="button" aria-label="Editar transação" title="Editar" (click)="onEdit(item.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button class="table-btn icon-btn remove" type="button" aria-label="Excluir transação" title="Excluir" (click)="onDelete(item.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </section>
+</section>

@@ -1,0 +1,46 @@
+{
+  "account": {
+    "id": 1,
+    "name": "Cliente Especial",
+    "balance": 4500
+  },
+  "transactions": [
+    {
+      "id": "a765",
+      "date": "2026-03-01T03:00:00.000Z",
+      "description": "Salário",
+      "amount": 3000,
+      "type": "income"
+    },
+    {
+      "id": "1772557478699",
+      "date": "2026-03-03T17:04:38.699Z",
+      "description": "Transferência para Conta Corrente 0012 - Churrasco",
+      "amount": -100,
+      "type": "expense"
+    },
+    {
+      "id": "1772557496170",
+      "date": "2026-03-03T17:04:56.170Z",
+      "description": "Empréstimo - crédito de R$ 2000.00",
+      "amount": 2000,
+      "type": "income"
+    },
+    {
+      "id": "1772557544682",
+      "date": "2026-03-03T17:05:44.682Z",
+      "description": "Transferência para Conta Poupança 5021 - Presente ",
+      "amount": -300,
+      "type": "expense"
+    },
+    {
+      "id": "1772558826690",
+      "date": "2026-03-03T17:27:06.690Z",
+      "description": "Transferência para Conta Corrente 0012 - ",
+      "amount": -100,
+      "type": "expense"
+    }
+  ],
+  "transfers": [],
+  "loans": []
+}
