@@ -8,7 +8,7 @@
 
 .create-transaction-root h2 {
 	margin-bottom: 4px;
-	color: #f5f8ff;
+	color: var(--white-soft);
 }
 
 .create-form {
@@ -38,7 +38,7 @@
 .action-btn.primary {
 	border: 0;
 	background: var(--primary);
-	color: #fff;
+	color: var(--white);
 }
 
 .action-btn.primary:disabled {
@@ -47,28 +47,28 @@
 }
 
 .action-btn.secondary {
-	border: 1px solid rgba(91, 116, 255, 0.45);
+	border: 1px solid var(--primary-45);
 	background: transparent;
-	color: #9eb0ff;
+	color: var(--muted-accent-2);
 }
 
 :host ::ng-deep .mat-mdc-form-field {
-	--mdc-outlined-text-field-outline-color: rgba(255, 255, 255, 0.2);
-	--mdc-outlined-text-field-hover-outline-color: rgba(255, 255, 255, 0.3);
-	--mdc-outlined-text-field-focus-outline-color: #5b74ff;
-	--mat-sys-on-surface: #eef3ff;
-	--mat-sys-on-surface-variant: #8ea1d1;
-	--mat-sys-primary: #5b74ff;
+	--mdc-outlined-text-field-outline-color: var(--field-outline-20);
+	--mdc-outlined-text-field-hover-outline-color: var(--field-outline-30);
+	--mdc-outlined-text-field-focus-outline-color: var(--primary);
+	--mat-sys-on-surface: var(--text);
+	--mat-sys-on-surface-variant: var(--text-muted);
+	--mat-sys-primary: var(--primary);
 }
 
 :host ::ng-deep .mat-mdc-form-field-subscript-wrapper,
 :host ::ng-deep .mat-mdc-form-field-hint,
 :host ::ng-deep .mat-mdc-form-field-error {
-	color: #9db0df;
+	color: var(--muted-accent-3);
 }
 
 :host ::ng-deep .mat-datepicker-toggle {
-	color: #8ea1d1;
+	color: var(--text-muted);
 }
 
 @media (max-width: 900px) {

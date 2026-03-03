@@ -31,6 +31,50 @@ body {
     --danger: #ff4d6d;
     --warning: #ffcc66;
 
+    --white: #ffffff;
+    --white-soft: #f5f8ff;
+    --input-bg: #2a3364;
+    --input-border: #3a4882;
+    --divider: rgba(255, 255, 255, .06);
+    --divider-05: rgba(255, 255, 255, 0.05);
+    --divider-03: rgba(255, 255, 255, 0.03);
+    --badge-bg: rgba(88, 112, 255, .18);
+    --badge-text: #9fb0ff;
+    --muted-border-08: rgba(255, 255, 255, 0.08);
+    --hover-bg-05: rgba(255, 255, 255, 0.05);
+    --primary-22: rgba(91, 116, 255, 0.22);
+    --primary-18: rgba(91, 116, 255, 0.18);
+    --primary-45: rgba(91, 116, 255, 0.45);
+    --field-outline-20: rgba(255, 255, 255, 0.2);
+    --field-outline-30: rgba(255, 255, 255, 0.3);
+    --text-85: rgba(255, 255, 255, 0.85);
+    --surface-75: rgba(26, 35, 77, 0.75);
+    --danger-20: rgba(255, 77, 109, 0.2);
+    --danger-16: rgba(255, 77, 109, 0.16);
+    --success-16: rgba(18, 217, 155, 0.16);
+    --secondary-border-24: rgba(113, 138, 219, 0.24);
+    --field-border-03: rgba(255, 255, 255, 0.03);
+    --sidebar-bg-alpha: rgba(10, 18, 55, 0.55);
+    --muted-accent-1: #b9c5ff;
+    --muted-accent-2: #9eb0ff;
+    --muted-accent-3: #9db0df;
+    --muted-90: #90a4db;
+    --muted-7f: #7f94cd;
+    --trend-up: #1ee2ae;
+    --trend-down: #ff5d77;
+    --loan-grad-start: #17b189;
+    --loan-grad-end: #1ca57d;
+    --btn-primary-bg: #198f72;
+    --muted-97aadb: #97aadb;
+    --transfer-grad-start: #5870ff;
+    --transfer-grad-end: #495fd7;
+    --content-muted: #8fa3da;
+    --header-bg-alpha: rgba(10, 18, 55, 0.35);
+    --icon-hover-bg: rgba(255, 255, 255, 0.06);
+    --badge-text-alt: #a6b4ff;
+    --success-text: #55e8be;
+    --danger-text-16: #ff8da6;
+
     --muted: var(--text-muted);
     --space-1: 8px;
     --space-2: 12px;
@@ -137,8 +181,8 @@ select,
 textarea {
     width: 100%;
     color: var(--text);
-    background: #2a3364;
-    border: 1px solid #3a4882;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
     border-radius: 10px;
     padding: 11px 12px;
     outline: none;
@@ -151,7 +195,7 @@ textarea::placeholder {
 
 button.btn-primary {
     background: var(--primary);
-    color: #fff;
+    color: var(--white);
     border: 0;
     border-radius: 10px;
     padding: 10px 14px;
@@ -176,7 +220,7 @@ table thead th {
 
 table tbody td {
     color: var(--text);
-    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    border-bottom: 1px solid var(--divider);
     padding: 13px 16px;
 }
 
@@ -189,7 +233,7 @@ table tbody td {
 .mat-sort-header .mat-sort-header-container.mat-sort-header-sorted .mat-sort-header-arrow,
 .mat-sort-header .mat-sort-header-sorted .mat-sort-header-arrow {
     opacity: 1 !important;
-    color: #fff !important;
+    color: var(--white) !important;
 }
 
 .mat-sort-header.mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-stem,
@@ -209,7 +253,7 @@ table tbody td {
 .mat-sort-header .mat-sort-header-sorted .mat-sort-header-arrow .mat-sort-header-pointer-right {
     border-left-color: transparent !important;
     border-right-color: transparent !important;
-    border-bottom-color: #fff !important;
+    border-bottom-color: var(--white) !important;
 }
 
 .badge {
@@ -218,6 +262,6 @@ table tbody td {
     border-radius: 999px;
     font-size: 12px;
     padding: 4px 10px;
-    background: rgba(88, 112, 255, .18);
-    color: #9fb0ff;
+    background: var(--badge-bg);
+    color: var(--badge-text);
 }

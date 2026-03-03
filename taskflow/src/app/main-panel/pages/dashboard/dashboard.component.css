@@ -15,7 +15,7 @@
 
 .dashboard-hero h2 {
 	margin-bottom: 2px;
-	color: #f6f8ff;
+	color: var(--white-soft);
 	font-weight: 700;
 	font-size: 2rem;
 }
@@ -30,8 +30,8 @@
 	padding: 14px 16px;
 	border-radius: 10px;
 	min-width: 0;
-	background: #1a234d;
-	border: 1px solid rgba(113, 138, 219, 0.24);
+	background: var(--surface);
+	border: 1px solid var(--secondary-border-24);
 }
 
 .hero-card-top {
@@ -43,29 +43,29 @@
 }
 
 .hero-card .muted {
-	color: #90a4db;
+	color: var(--muted-90);
 	font-size: 0.76rem;
 	letter-spacing: 0.1px;
 }
 
 .hero-meta {
-	color: #7f94cd;
+	color: var(--muted-7f);
 	font-size: 0.7rem;
 }
 
 .hero-card .big {
-	color: #f5f8ff;
+	color: var(--white-soft);
 	font-size: 2.1rem;
 	font-weight: 700;
 	line-height: 1.1;
 }
 
 .hero-card .big.text-success {
-	color: #1ee2ae !important;
+	color: var(--trend-up) !important;
 }
 
 .hero-card .big.text-danger {
-	color: #ff5d77 !important;
+	color: var(--trend-down) !important;
 }
 
 .trend {
@@ -79,33 +79,33 @@
 }
 
 .trend.up {
-	color: #1ee2ae;
+	color: var(--trend-up);
 }
 
 .trend.down {
-	color: #ff5d77;
+	color: var(--trend-down);
 }
 
-.muted-card { background:#1a234d; border:1px solid rgba(113, 138, 219, 0.24) }
+.muted-card { background:var(--surface); border:1px solid var(--secondary-border-24) }
 
 .content { padding:22px 24px }
 .content .content-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px }
 .content .content-header h3 {
-	color: #f2f6ff;
+	color: var(--white-soft);
 }
 
 .content .content-header .muted {
-	color: #8fa3da;
+	color: var(--content-muted);
 }
 
 .search-row { margin-bottom: 12px }
-.search-row input { width:100%; padding:11px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); background:transparent; color:inherit }
+.search-row input { width:100%; padding:11px 12px; border-radius:8px; border:1px solid var(--field-border-03); background:transparent; color:inherit }
 
 .transactions-table table { width:100%; border-collapse:collapse }
-.transactions-table th { text-align:left; padding:13px 16px; color:#90a4db; font-weight:600; font-size:0.86rem }
-.transactions-table td { padding:13px 16px; border-top:1px solid rgba(255,255,255,0.05) }
-.transactions-table td:nth-child(1) { color: #97aadb; }
-.transactions-table td:nth-child(2) { color: #edf2ff; }
+.transactions-table th { text-align:left; padding:13px 16px; color:var(--muted-90); font-weight:600; font-size:0.86rem }
+.transactions-table td { padding:13px 16px; border-top:1px solid var(--divider-05) }
+.transactions-table td:nth-child(1) { color: var(--muted-97aadb); }
+.transactions-table td:nth-child(2) { color: var(--white-soft); }
 .transactions-table td:nth-child(3) { font-weight: 600; }
 
 @media (max-width:900px){
