@@ -1,6 +1,5 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { Account } from './models/account.model';
 import { Transaction } from '../transactions/models/transaction.model';
 import { DatePipe } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,6 +10,7 @@ import { AccountStateService } from '../../../core/services/account-state.servic
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
     DecimalPipe,
     MatSortModule,
     MatIconModule,
+    AsyncPipe
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -32,7 +33,7 @@ export class DashboardComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly accountState = inject(AccountStateService);
 
-  account?: Account;
+  account$ = this.accountState.account$;
   transactions: Transaction[] = [];
 
   search: string = '';
@@ -51,12 +52,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.accountState.account$
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((account) => {
-        this.account = account || undefined;
-      });
-
     this.accountState.transactions$
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((transactions) => {

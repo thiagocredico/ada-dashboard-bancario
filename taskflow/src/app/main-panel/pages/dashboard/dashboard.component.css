@@ -68,6 +68,18 @@
 	color: var(--trend-down) !important;
 }
 
+.hero-card .big mat-icon.trend {
+	font-size: 1.0rem;
+	vertical-align: middle;
+	margin-left: 8px;
+	transform: translateY(-2px);
+}
+
+.hero-card .big mat-icon.trend.up,
+.hero-card .big mat-icon.trend.down {
+	font-weight: 700;
+}
+
 .trend {
 	font-size: 0.95rem;
 	font-weight: 600;

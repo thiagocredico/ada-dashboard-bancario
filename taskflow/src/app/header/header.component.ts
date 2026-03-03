@@ -21,10 +21,9 @@ export class HeaderComponent {
     this.accountState.account$
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((account) => {
-        this.accountName = account?.name || 'Cliente';
+        this.accountName = account?.name ?? 'Cliente';
       });
 
-    // initialize theme from localStorage (default dark)
     try {
       const stored = localStorage.getItem('theme');
       this.isLight = stored === 'light';
