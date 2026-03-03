@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Account } from '../models/account.model';
 
 @Injectable({
@@ -27,12 +27,20 @@ export class DashboardService {
   getAccount(): Observable<Account> {
     return this.http
       .get<Account | { item?: Account }>(`${this.apiUrl}/account`)
+      .pipe(
+        catchError(() => this.http.get<Account | { item?: Account }>(`${this.apiUrl}/account/item`)),
+      )
       .pipe(map((account) => this.normalizeAccount(account)));
   }
 
   updateAccount(account: Partial<Account>): Observable<Account> {
     return this.http
-      .patch<Account | { item?: Account }>(`${this.apiUrl}/account/item`, account)
+      .patch<Account | { item?: Account }>(`${this.apiUrl}/account`, account)
+      .pipe(
+        catchError(() =>
+          this.http.patch<Account | { item?: Account }>(`${this.apiUrl}/account/item`, account),
+        ),
+      )
       .pipe(map((updated) => this.normalizeAccount(updated)));
   }
 }
